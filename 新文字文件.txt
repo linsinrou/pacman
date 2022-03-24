@@ -1,3 +1,5 @@
+好醜 阿噁
+
 #pragma once
 #ifndef Student_h
 #define Student_h
