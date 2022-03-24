@@ -1,0 +1,149 @@
+#pragma once
+#ifndef Student_h
+#define Student_h
+#include <string>
+#include "Date.h"
+using namespace std;
+
+class Student {
+public:
+    Student(string, Date, int);
+    string getName() const;
+    Date getDate() const;
+    int getScore() const;
+    void setName(string);
+    void setDate(Date);
+    void setScore(int);
+    void print();
+private:
+    string name;
+    Date birthday;
+    int score;
+};
+
+#endif
+
+#include <iostream>
+#include <string>
+#include "Student.h"
+#include "Date.h"
+using namespace std;
+
+Student::Student(string name, Date birthday, int score) {
+    setName(name);
+    setDate(birthday);
+    setScore(score);
+}
+
+string Student::getName() const {
+    return name;
+}
+Date Student::getDate() const {
+    return birthday;
+}
+int Student::getScore() const {
+    return score;
+}
+void Student::setName(string newName) {
+    name = newName;
+}
+void Student::setDate(Date newDate) {
+    birthday = newDate;
+}
+void Student::setScore(int newScore) {
+    score = newScore;
+}
+void Student::print() {
+    cout << name;
+    birthday.print();
+    cout << score << endl;
+}
+
+#pragma once
+#ifndef Date_h
+#define Date_h
+using namespace std;
+
+class Date {
+public:
+    Date();
+    Date(int, int, int);
+    int getMonth() const;
+    int getDay() const;
+    int getYear() const;
+    void setMonth(int);
+    void setDay(int);
+    void setYear(int);
+    void print();
+private:
+    int month;
+    int day;
+    int year;
+};
+
+#endif
+
+#include <iostream>
+#include "Date.h"
+using namespace std;
+
+Date::Date() {
+
+}
+
+Date::Date(int month, int day, int year) {
+    setMonth(month);
+    setDay(day);
+    setYear(year);
+}
+
+int Date::getMonth() const {
+    return month;
+}
+int Date::getDay() const {
+    return day;
+}
+int Date::getYear() const {
+    return year;
+}
+void Date::setMonth(int newMonth) {
+    month = newMonth;
+}
+void Date::setDay(int newDay) {
+    day = newDay;
+}
+void Date::setYear(int newYear) {
+    year = newYear;
+}
+void Date::print() {
+    cout << " " << month << "/" << day << "/" << year << " ";
+}
+
+#include <iostream>
+#include <string>
+#include "Student.h"
+#include "Date.h"
+using namespace std;
+
+int main()
+{
+	Date birth1(6, 1, 1999);
+	Date birth2(10, 8, 1997);
+	Student student1("John", birth1, 90);
+	Student student2("Marry", birth2, 80);
+
+	string name1;
+	int M, D, Y;
+
+	cin >> name1 >> M >> D >> Y;
+
+	Date X(M, D, Y);
+
+	student1.setName(name1);
+	student2.setDate(X);
+
+	student1.print();
+	student2.print();
+
+	return 0;
+}
