@@ -15,4 +15,4 @@ int Course::getComputer();
 int Course::getSum();
 int Course::getAverage();
 無效 課程::printScore
-林欣柔是呆子
+林昕柔是呆子
