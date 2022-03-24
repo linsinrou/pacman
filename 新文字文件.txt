@@ -1,4 +1,4 @@
-好醜 阿噁
+林昕柔 好醜 阿噁
 
 #pragma once
 #ifndef Student_h
