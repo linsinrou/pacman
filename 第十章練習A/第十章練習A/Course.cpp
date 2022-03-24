@@ -14,4 +14,5 @@ int Course::getEnglish();
 int Course::getComputer();
 int Course::getSum();
 int Course::getAverage();
-void Course::printScore();
+無效 課程::printScore
+林欣柔是呆子
