@@ -6,7 +6,7 @@ void Course::setMath(int a)
 }
 void Course::setEnglish()
 {
-
+	en;
 }
 void Course::setComputer();
 int Course::getMath();
