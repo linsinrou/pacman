@@ -1,20 +1,9 @@
+#include "Pacman.h"
 #include <iostream>
-#include <windows.h>
-#include "pacman.h"
 
 using namespace std;
 
-void getxy(short x, short y)
-{
-	HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE); // 擷取指定標準裝置的控制代碼(標準輸入、標準輸出或標準錯誤)。
-	COORD position = { x, y };
-
-	SetConsoleCursorPosition(hStdout, position);
-}
-
-int main()
-{
-	char map[25][50] = {
+char map[25][50] = {
 		"+###############################################+",
 		"|........#.....................####.............|",
 		"|........#........................#.............|",
@@ -40,13 +29,22 @@ int main()
 		"|......#.......######........#####....#...######|",
 		"|...................#.........#.................|",
 		"|+#############################################+|",
-		};
+};
 
-	
-	Pacman openmap;
+Pacman::Pacman()
+{
+	x = 1;
+	y = 1;
+}
 
-	system("cls");
-	openmap.ShowMap();
+Pacman::Pacman(int x, int y) {
+	this->x = x;
+	this->y = y;
+}
 
-	return 0;
+void Pacman::ShowMap()
+{
+	for (int i = 0; i < 25; i++) {
+		cout << map[i] << endl;
+	}
 }
