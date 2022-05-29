@@ -42,11 +42,91 @@ int main()
 		"|+#############################################+|",
 		};
 
-	
+	bool running = true;
+	int x = 15, y = 16, endx = 1, endy = 1, point = 0, newx, newy;
+
 	Pacman openmap;
 
 	system("cls");
 	openmap.ShowMap();
+
+	getxy(x, y); 
+	cout << "P";
+
+	while (running) {
+		getxy(x, y); 
+		cout << " ";
+
+		newx = x;
+		newy = y;
+
+		if (GetAsyncKeyState(VK_UP)) 
+		{
+			if (map[y - 1][x] == '.') 
+			{ 
+				y--; 
+				point++; 
+			}
+			else if (map[y - 1][x] == ' ')
+			{
+				y--;
+			}	
+		}
+
+		if (GetAsyncKeyState(VK_DOWN)) 
+		{
+			if (map[y + 1][x] == '.') 
+			{ 
+				y++; 
+				point++; 
+			}
+			else if (map[y + 1][x] == ' ')
+			{
+				y++;
+			}		
+		}
+
+		if (GetAsyncKeyState(VK_LEFT))
+		{
+			if (map[y][x - 1] == '.') 
+			{ 
+				x--;
+				point++; 
+			}
+			else if (map[y][x - 1] == ' ')
+			{
+				x--;
+			}	
+		}
+
+		if (GetAsyncKeyState(VK_RIGHT)) 
+		{
+			if (map[y][x + 1] == '.') 
+			{ 
+				x++; 
+				point++; 
+			}
+			else if (map[y][x + 1] == ' ')
+			{
+				x++;
+			}				
+		}
+
+		getxy(x, y); cout << "P";
+
+		if (endx == x && endy == y) {
+			break;
+		}
+
+		getxy(50, 1); cout << "上下左右鍵控制，回到(1,1)結束: " << point;
+		Sleep(100);
+		
+	}
+
+	system("cls");
+	cout << "You Lose and your score is : " << point;
+	cin.get();
+
 
 	return 0;
 }
